@@ -11,9 +11,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby ITHS`,
-    description: `Enkel starter template för ITHS-studenter`,
-    author: `Håkan Gleissman`,
+    title: `Gatsby ITHS SkolPortfolio`,
+    description: `Based on a true story`,
+    author: `Axel Olivecrona`,
     siteUrl: `http://dummy-site.com`,
   },
   plugins: [
@@ -26,7 +26,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`, 
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
