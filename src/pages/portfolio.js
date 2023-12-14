@@ -16,13 +16,14 @@ const SecondPage = () => {
       edges {
         node {
           titel
+          id
           description {
             childrenMarkdownRemark {
               excerpt
             }
           }
           bild {
-            gatsbyImage(width: 200)
+            gatsbyImage(width: 300)
           }
         }
       }
@@ -37,7 +38,17 @@ const SecondPage = () => {
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
     <Link to="/">Go back to the homepage</Link>
-    <pre>{JSON.stringify({data}, null, 2)}</pre>
+    <ul className="kurslistan">
+      {data.allContentfulPosts.edges.map((edge) => (
+        <li key={edge.node.id} className="kursamne">
+          <div className="ph2text_container">
+            <h2 className="kurstitel">{edge.node.titel}</h2>
+            <p className="kurstext">{edge.node.description.childrenMarkdownRemark[0].excerpt}</p>
+          </div>
+            <GatsbyImage className="kursbild" image={edge.node.bild.gatsbyImage} alt={edge.node.titel} />
+        </li>
+      ))}
+    </ul>
   </Layout>
   )
 }
