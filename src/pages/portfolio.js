@@ -1,15 +1,10 @@
 import * as React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 
-//sidans namn blir portfolio efter namnet på javascript-filen
 const SecondPage = () => {
-
-
-
   const data = useStaticQuery(graphql`
   query {
     allContentfulPosts {
@@ -23,26 +18,23 @@ const SecondPage = () => {
             }
           }
           bild {
-            gatsbyImage(width: 300)
+            gatsbyImage(width: 700)
           }
         }
       }
     }
-  }
-  `
-  )
+  }`)
 
   return (
 
   <Layout>
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <h2 className="portfolioh2">ITHS kurser jag förvärvat som Frontend utvecklare</h2>
+    {/* <Link to="/">Go back to the homepage</Link> */}
     <ul className="kurslistan">
       {data.allContentfulPosts.edges.map((edge) => (
         <li key={edge.node.id} className="kursamne">
           <div className="ph2text_container">
-            <h2 className="kurstitel">{edge.node.titel}</h2>
+            <h3 className="kurstitel">{edge.node.titel}</h3>
             <p className="kurstext">{edge.node.description.childrenMarkdownRemark[0].excerpt}</p>
           </div>
             <GatsbyImage className="kursbild" image={edge.node.bild.gatsbyImage} alt={edge.node.titel} />
