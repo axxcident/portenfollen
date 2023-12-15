@@ -10,6 +10,7 @@ body {
 
 .kursamne {
   display: flex;
+  justify-content: space-between;
   height: 25vh;
   width: 100%;
   padding: 1rem;
@@ -26,7 +27,7 @@ body {
   width: 80%;
   margin: 0 auto;
   padding: 1rem;
-  border: 3px solid;
+  /* border: 3px solid; */
 }
 
 .ph2text_container {
@@ -40,9 +41,17 @@ body {
   font-size: 1.5rem;
 }
 
+/* Kurs bilder */
 #gatsby-focus-wrapper > main > ul > li > div.gatsby-image-wrapper.gatsby-image-wrapper-constrained.kursbild > picture > img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+  border-radius: 5rem;
+}
+
+.gatsby-image-wrapper-constrained {
+  height: 100%;
+  /* width: 100%; */
   object-fit: cover;
   border-radius: 5rem;
 }
