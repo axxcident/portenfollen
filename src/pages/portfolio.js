@@ -1,43 +1,49 @@
 import * as React from "react"
-// import { Link } from "gatsby"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 
 const SecondPage = () => {
   const data = useStaticQuery(graphql`
   query {
-    allContentfulPosts {
+    allContentfulPosts(sort: {bloggDatum: DESC}) {
       edges {
         node {
           titel
           id
-          description {
-            childrenMarkdownRemark {
-              excerpt
+          excerpt {
+            childMarkdownRemark {
+              excerpt(pruneLength: 150)
             }
           }
           bild {
-            gatsbyImage(width: 700)
+            gatsbyImageData(width: 700, quality: 100)
           }
+          bloggDatum
+          slug
+          spaceId
         }
       }
     }
-  }`)
+  }
+`)
 
   return (
-
   <Layout>
     <h2 className="portfolioh2">ITHS kurser jag förvärvat som Frontend utvecklare</h2>
-    {/* <Link to="/">Go back to the homepage</Link> */}
     <ul className="kurslistan">
       {data.allContentfulPosts.edges.map((edge) => (
         <li key={edge.node.id} className="kursamne">
-          <div className="ph2text_container">
-            <h3 className="kurstitel">{edge.node.titel}</h3>
-            <p className="kurstext">{edge.node.description.childrenMarkdownRemark[0].excerpt}</p>
-          </div>
-            <GatsbyImage className="kursbild" image={edge.node.bild.gatsbyImage} alt={edge.node.titel} />
+          <Link to={`/blog/${edge.node.slug}/`} className="ph2text_container">
+          {/* <div className="ph2text_container"> */}
+            <h3 className="kurstitel">
+              {edge.node.titel}
+              </h3>
+            <p className="kurstext">{edge.node.excerpt.childMarkdownRemark.excerpt}</p>
+            <span className="datum">Publicerat: {formatDate(edge.node.bloggDatum)}</span>
+          {/* </div> */}
+          </Link>
+            <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
         </li>
       ))}
     </ul>
@@ -48,3 +54,10 @@ const SecondPage = () => {
 export const Head = () => <title>Portfolio Page</title>
 
 export default SecondPage
+
+// Helper function to format the date
+const formatDate = (dateString) => {
+  const options = { day: "numeric", month: "long", year: "numeric" };
+  const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+  return formattedDate;
+};
