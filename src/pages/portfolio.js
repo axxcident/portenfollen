@@ -19,7 +19,7 @@ const SecondPage = () => {
           bild {
             gatsbyImageData(width: 700, quality: 100)
           }
-          bloggDatum
+          bloggDatum(formatString: "Do of MMMM YYYY")
           slug
           spaceId
         }
@@ -34,14 +34,12 @@ const SecondPage = () => {
     <ul className="kurslistan">
       {data.allContentfulPosts.edges.map((edge) => (
         <li key={edge.node.id} className="kursamne">
-          <Link to={`/blog/${edge.node.slug}/`} className="ph2text_container">
-          {/* <div className="ph2text_container"> */}
+          <Link to={`/portfolio-post/${edge.node.slug}/`} className="ph2text_container">
             <h3 className="kurstitel">
               {edge.node.titel}
               </h3>
             <p className="kurstext">{edge.node.excerpt.childMarkdownRemark.excerpt}</p>
-            <span className="datum">Publicerat: {formatDate(edge.node.bloggDatum)}</span>
-          {/* </div> */}
+            <span className="datum">Publicerat: {edge.node.bloggDatum}</span>
           </Link>
             <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
         </li>
@@ -54,10 +52,3 @@ const SecondPage = () => {
 export const Head = () => <title>Portfolio Page</title>
 
 export default SecondPage
-
-// Helper function to format the date
-const formatDate = (dateString) => {
-  const options = { day: "numeric", month: "long", year: "numeric" };
-  const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
-  return formattedDate;
-};
