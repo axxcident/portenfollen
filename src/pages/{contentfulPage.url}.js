@@ -7,15 +7,15 @@ import AboutTemplate from "../templates/about-template"
 import ContactTemplate from "../templates/contact-template"
 import HomeTemplate from "../templates/home-template"
 
-const Page = ({ props }) => {
+const Page = ( props ) => {
 
   const { data } = props;
   const { contentfulPage } = data;
   const getTemplate = (contentfulPage) => {
     switch (contentfulPage.template) {
-      case "about":
+      case "about-template":
         return <AboutTemplate {...contentfulPage} />
-      case "contact":
+      case "contact-template":
         return <ContactTemplate {...contentfulPage} />
       default:
         return <HomeTemplate {...contentfulPage} />
@@ -24,8 +24,6 @@ const Page = ({ props }) => {
 
   return <Layout>{getTemplate(contentfulPage)}</Layout>
 }
-
-// query($id: String!) {
 
 export const data = graphql`
   query($id: String!) {
@@ -36,15 +34,5 @@ export const data = graphql`
     }
   }
 `
-// export const query = pageQuery(graphql`
-//   query {
-//     contentfulPage {
-//       contentful_id
-//       internal {
-//         content
-//       }
-//     }
-//   }
-// `)
 
 export default Page;
