@@ -48,8 +48,15 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/ITHS_Logga.png`, // This path is relative to the root of the site.
       },
     },
+    // {
+    //   resolve: 'gatsby-plugin-netlify',
+    //   options: {
+    //     functionsSrc: `${__dirname}/functions`,
+    //     functionsOutput: `${__dirname}/functions/build`,
+    //   },
+    // },
   ],
 }

@@ -49,6 +49,6 @@ const SecondPage = () => {
   )
 }
 
-export const Head = () => <title>Portfolio Page</title>
+export const Head = () => <title>Studie-Portfolio</title>
 
 export default SecondPage
