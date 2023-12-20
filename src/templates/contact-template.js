@@ -1,10 +1,12 @@
 import * as React from "react"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const ContactPage = (contentfulPage) => {
   return (
-    <main>
-      <h2>{contentfulPage.titel}</h2>
-    </main>
+    <>
+      {/* <h3>{contentfulPage.titel}</h3> */}
+      {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
+    </>
   );
 }
 

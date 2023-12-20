@@ -17,8 +17,6 @@ const Page = ( props ) => {
         return <AboutTemplate {...contentfulPage} />
       case "contact-template":
         return <ContactTemplate {...contentfulPage} />
-      case "home-template":
-        return <HomeTemplate {...contentfulPage} />
       default:
         return <HomeTemplate {...contentfulPage} />
     }
@@ -30,6 +28,7 @@ const Page = ( props ) => {
 export const data = graphql`
   query($id: String!) {
     contentfulPage(id: { eq: $id }) {
+      template
       url
       titel
       bilden {
