@@ -30,7 +30,12 @@ export const data = graphql`
     contentfulPage(id: { eq: $id }) {
       url
       titel
-      template
+      bilden {
+        gatsbyImage(width: 700)
+      }
+      content {
+        raw
+      }
     }
   }
 `
