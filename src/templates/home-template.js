@@ -46,9 +46,7 @@ const HomePage = (contentfulPage) => {
         </div>
       )}
     </div>
-      {/* <p>{contentfulPage.url}</p> */}
       <GatsbyImage className="homepage-bild" image={getImage(contentfulPage.bilden.gatsbyImage)} alt={contentfulPage.titel} />
-
     </>
   );
 }

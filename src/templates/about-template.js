@@ -1,10 +1,12 @@
 import * as React from "react"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const AboutPage = (contentfulPage) => {
   return (
-    <main>
-      <h2>{contentfulPage.titel}</h2>
-    </main>
+    <>
+      {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
+      <h1>{contentfulPage.titel}</h1>
+    </>
   );
 }
 
