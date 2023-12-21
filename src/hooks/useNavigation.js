@@ -19,11 +19,11 @@ const useNavigation = () => {
   return (
     <>
     <nav>
-      {/* Detta kommer inte funka med NEtlify */}
+      {/* Detta kommer inte funka med NEtlify http://localhost:8000 */}
       <ul className="headerlink-navigation">
       {data.allContentfulPage.edges.map((edge) => (
         <li key={edge.node.id}>
-          <Link className="headerlink" to={`http://localhost:8000${edge.node.url}`}>{edge.node.titel}</Link>
+          <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link>
         </li>
       ))}
         <li>
