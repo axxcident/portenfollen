@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import AboutTemplate from "../templates/about-template"
 import ContactTemplate from "../templates/contact-template"
 import HomeTemplate from "../templates/home-template"
+import PortTemplate from "../templates/portfolio-template"
 
 const Page = ( props ) => {
 
@@ -17,6 +18,8 @@ const Page = ( props ) => {
         return <AboutTemplate {...contentfulPage} />
       case "contact-template":
         return <ContactTemplate {...contentfulPage} />
+      case "portfolio-template":
+        return <PortTemplate {...contentfulPage} />
       default:
         return <HomeTemplate {...contentfulPage} />
     }

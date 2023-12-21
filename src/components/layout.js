@@ -1,6 +1,6 @@
 import * as React from "react"
 import '../css/style.css';
-import {Link} from "gatsby";
+// import {Link} from "gatsby";
 import useNavigation from "../hooks/useNavigation";
 
 const Layout = ({ children }) => (
