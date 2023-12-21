@@ -19,6 +19,7 @@ const useNavigation = () => {
   return (
     <>
     <nav>
+      {/* Detta kommer inte funka med NEtlify */}
       <ul className="headerlink-navigation">
       {data.allContentfulPage.edges.map((edge) => (
         <li key={edge.node.id}>
