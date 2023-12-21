@@ -3,6 +3,7 @@ import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import GitHubHeatmap from "../functions/githubHeatMap";
 
 const HomePage = (contentfulPage) => {
   const [data, setData] = useState(null);
@@ -34,14 +35,15 @@ const HomePage = (contentfulPage) => {
       <div className="gitHubInformation">
       {data && (
         <div>
-          <h2>User Info:</h2>
-          <pre>{JSON.stringify(data.userInfo.login, null, 2)}</pre>
+          <h3>Mitt användarnamn på Github: {JSON.stringify(data.userInfo.login, null, 2)}</h3>
+          {/* <pre>{JSON.stringify(data.userInfo.login, null, 2)}</pre> */}
 
-          <h2>Repositories:</h2>
-          <pre>{JSON.stringify(data.repositories.length, null, 2)}</pre>
+          <h3>Antal Repositories: {JSON.stringify(data.repositories.length, null, 2)}</h3>
+          {/* <pre>{JSON.stringify(data.repositories.length, null, 2)}</pre> */}
 
-          <h2>Contributions:</h2>
-          <pre>{JSON.stringify(data.contributions.length, null, 2)}</pre>
+          <GitHubHeatmap contributions={data.contributions} />
+
+          {/* <pre>{JSON.stringify(data.contributions.length, null, 2)}</pre> */}
           {/* <pre>{JSON.stringify(data.contributions.created_at, null, 2)}</pre> */}
         </div>
       )}

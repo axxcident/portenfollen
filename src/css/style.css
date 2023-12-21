@@ -16,6 +16,11 @@ header {
     color: #000000;
     font-size: 1.5rem;
     font-weight: bold;
+    margin-left: 1rem;
+}
+
+#gatsby-focus-wrapper > header > a:nth-child(1) {
+  margin-left: 0;
 }
 
 .headerlink:hover {
@@ -24,11 +29,6 @@ header {
 
 .headerlink:active {
     color: #a72525;
-}
-
-/* Ta bort denna sen ifall mer länkar adderas */
-#gatsby-focus-wrapper > header > a:nth-child(2) {
-    margin-left: 1rem;
 }
 
 footer {
