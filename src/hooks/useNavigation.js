@@ -26,9 +26,6 @@ const useNavigation = () => {
           <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link>
         </li>
       ))}
-        <li>
-          <Link className="headerlink" to="/portfolio">Portfolio</Link>
-        </li>
       </ul>
     </nav>
     </>
