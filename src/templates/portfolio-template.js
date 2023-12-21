@@ -26,5 +26,4 @@ const PortfolioPage = (contentfulPage) => {
     </>
   );
 }
-
 export default PortfolioPage;

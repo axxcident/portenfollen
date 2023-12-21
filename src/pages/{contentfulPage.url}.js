@@ -1,6 +1,7 @@
 import * as React from "react"
 // import { Link } from "gatsby"
 // import { GatsbyImage  } from "gatsby-plugin-image"
+import { Helmet } from "react-helmet";
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import AboutTemplate from "../templates/about-template"
@@ -25,7 +26,15 @@ const Page = ( props ) => {
     }
   }
 
-  return <Layout>{getTemplate(contentfulPage)}</Layout>
+  return (
+    <>
+      <Helmet>
+        <title>{`${contentfulPage.titel}`}</title>
+      </Helmet>
+      <Layout>{getTemplate(contentfulPage)}</Layout>
+    </>
+  );
+  // return <Layout>{getTemplate(contentfulPage)}</Layout>
 }
 
 export const data = graphql`

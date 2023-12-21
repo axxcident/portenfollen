@@ -52,5 +52,4 @@ const HomePage = (contentfulPage) => {
     </>
   );
 }
-
 export default HomePage;
