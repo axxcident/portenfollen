@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Chart from 'chart.js/auto';
+import { format } from 'date-fns';
 
 const GitHubContributionsChart = () => {
   const chartRef = useRef(null);
@@ -36,7 +37,7 @@ const GitHubContributionsChart = () => {
 
     // Transform date strings to represent the month
     const contributionsByMonth = contributions.reduce((acc, day) => {
-      const month = day.date.slice(0, 7); // Extract YYYY-MM
+      const month = format(new Date(day.date), 'MMMM yyyy');
       acc[month] = (acc[month] || 0) + day.contributionCount;
       return acc;
     }, {});
@@ -44,6 +45,10 @@ const GitHubContributionsChart = () => {
   useEffect(() => {
     if (chartRef.current && contributionsByMonth) {
       const ctx = chartRef.current.getContext('2d');
+
+      if (chartRef.current.chart) {
+        chartRef.current.chart.destroy();
+      }
 
       // Extract data from contributions
       // const data = contributions.map((day) => day.contributionCount || 0);
@@ -79,7 +84,8 @@ const GitHubContributionsChart = () => {
         },
       });
     }
-  }, [chartRef, contributionsByMonth]);
+  }, [ contributionsByMonth]);
+  // chartRef
 
   return (
     <div>
