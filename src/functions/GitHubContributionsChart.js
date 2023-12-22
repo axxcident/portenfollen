@@ -34,19 +34,28 @@ const GitHubContributionsChart = () => {
     (week) => week.contributionDays
   );
 
+    // Transform date strings to represent the month
+    const contributionsByMonth = contributions.reduce((acc, day) => {
+      const month = day.date.slice(0, 7); // Extract YYYY-MM
+      acc[month] = (acc[month] || 0) + day.contributionCount;
+      return acc;
+    }, {});
+
   useEffect(() => {
-    if (chartRef.current && contributions) {
+    if (chartRef.current && contributionsByMonth) {
       const ctx = chartRef.current.getContext('2d');
 
       // Extract data from contributions
-      const data = contributions.map((day) => day.contributionCount || 0);
-      const labels = contributions.map((day) => day.date);
+      // const data = contributions.map((day) => day.contributionCount || 0);
+      // const labels = contributions.map((day) => day.date);
+      const labels = Object.keys(contributionsByMonth);
+      const data = Object.values(contributionsByMonth);
 
       const chartData = {
         labels: labels,
         datasets: [
           {
-            label: 'Contributions per Day',
+            label: 'Contributions per Month',
             data: data,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
@@ -70,7 +79,7 @@ const GitHubContributionsChart = () => {
         },
       });
     }
-  }, [chartRef, contributions]);
+  }, [chartRef, contributionsByMonth]);
 
   return (
     <div>

@@ -42,7 +42,6 @@ const HomePage = (contentfulPage) => {
 
 
           <GitHubContributionsChart />
-          {/* <GitHubContributionsChart contributions={data.contributions} /> */}
           {/* <GitHubHeatmap contributions={data.contributions} /> */}
           {/* <pre>{JSON.stringify(data.contributions.length, null, 2)}</pre> */}
           {/* <pre>{JSON.stringify(data.contributions.created_at, null, 2)}</pre> */}
