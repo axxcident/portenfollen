@@ -1,32 +1,46 @@
 import React, { useEffect, useRef } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import Chart from 'chart.js/auto';
 
-const GitHubContributionsChart = ({ contributions }) => {
+const GitHubContributionsChart = () => {
   const chartRef = useRef(null);
-  // const data = contributions.map((day) => {
-  //   console.log('data:', day); // Add this line to log the entire day object
-  // });
 
+  // Fetch GitHub contributions using GraphQL
+  const { githubData } = useStaticQuery(
+    graphql`
+      query {
+        githubData {
+          data {
+            user {
+              contributionsCollection {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      contributionCount
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
+
+  const contributions = githubData.data.user.contributionsCollection.contributionCalendar.weeks.flatMap(
+    (week) => week.contributionDays
+  );
 
   useEffect(() => {
     if (chartRef.current && contributions) {
       const ctx = chartRef.current.getContext('2d');
 
       // Extract data from contributions
-      // const data = contributions.map((day) => day.payload.commits.length || 0);
-          // Extract data from contributions
-    const data = contributions.map((day) => {
-      // Check if the event is a "PushEvent" and has commits
-      if (day.type === 'PushEvent' && day.payload && day.payload.commits) {
-        return day.payload.commits.length;
-      }
-      return 0;
-    });
-      const labels = contributions.map((day) => day.created_at);
-
-      // Log the extracted data to ensure it's correct
-      console.log('Data:', data);
-      console.log('Labels:', labels);
+      const data = contributions.map((day) => day.contributionCount || 0);
+      const labels = contributions.map((day) => day.date);
 
       const chartData = {
         labels: labels,

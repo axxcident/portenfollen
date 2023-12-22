@@ -16,7 +16,7 @@ const HomePage = (contentfulPage) => {
       try {
         const userResponse = await axios.get(`https://api.github.com/users/${username}`);
         const reposResponse = await axios.get(`https://api.github.com/users/${username}/repos`);
-        const eventsResponse = await axios.get(`https://api.github.com/users/${username}/events`);
+        const eventsResponse = await axios.get(`https://api.github.com/users/${username}/events/public`);
 
         const userInfo = userResponse.data;
         const repositories = reposResponse.data;
@@ -41,7 +41,8 @@ const HomePage = (contentfulPage) => {
           <h3>Antal Repositories: {JSON.stringify(data.repositories.length, null, 2)}</h3>
 
 
-          <GitHubContributionsChart contributions={data.contributions} />
+          <GitHubContributionsChart />
+          {/* <GitHubContributionsChart contributions={data.contributions} /> */}
           {/* <GitHubHeatmap contributions={data.contributions} /> */}
           {/* <pre>{JSON.stringify(data.contributions.length, null, 2)}</pre> */}
           {/* <pre>{JSON.stringify(data.contributions.created_at, null, 2)}</pre> */}

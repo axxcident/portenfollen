@@ -51,6 +51,30 @@ module.exports = {
         icon: `src/images/ITHS_Logga.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: process.env.GITHUB_PERSONAL_TOKEN,
+        variables: {},
+        graphQLQuery: `
+          query {
+            user(login: "axxcident") {
+              contributionsCollection {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      contributionCount
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
+      },
+    },
     // {
     //   resolve: 'gatsby-plugin-netlify',
     //   options: {
