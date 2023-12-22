@@ -8,46 +8,6 @@ import GitHubContributionsChart from "../functions/GitHubContributionsChart";
 
 const HomePage = (contentfulPage) => {
 
-  // const fetchData2 = async () => {
-  //   const axios = require('axios');
-  //   const token = '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';
-  //   const apiUrl = 'https://api.github.com/graphql';
-
-  //   const response = await axios.post(
-  //     apiUrl,
-  //     {
-  //       query: `
-  //         query {
-  //           viewer {
-  //             contributionsCollection {
-  //               contributionCalendar {
-  //                 totalContributions
-  //                 weeks {
-  //                   contributionDays {
-  //                     contributionCount
-  //                     date
-  //                   }
-  //                 }
-  //               }
-  //             }
-  //           }
-  //         }
-  //       `,
-  //     },
-  //     {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     }
-  //   );
-
-  //   const data2 = response.data.data;
-  //   // Process and use the data for your chart.
-  // };
-
-  // fetchData2();
-
-
   const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -78,10 +38,7 @@ const HomePage = (contentfulPage) => {
       {data && (
         <div>
           <h3>Mitt användarnamn på Github: {JSON.stringify(data.userInfo.login, null, 2)}</h3>
-          {/* <pre>{JSON.stringify(data.userInfo.login, null, 2)}</pre> */}
-
           <h3>Antal Repositories: {JSON.stringify(data.repositories.length, null, 2)}</h3>
-          {/* <pre>{JSON.stringify(data.repositories.length, null, 2)}</pre> */}
 
 
           <GitHubContributionsChart contributions={data.contributions} />

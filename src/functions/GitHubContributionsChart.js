@@ -25,8 +25,8 @@ const GitHubContributionsChart = ({ contributions }) => {
       const labels = contributions.map((day) => day.created_at);
 
       // Log the extracted data to ensure it's correct
-      // console.log('Data:', data);
-      // console.log('Labels:', labels);
+      console.log('Data:', data);
+      console.log('Labels:', labels);
 
       const chartData = {
         labels: labels,
