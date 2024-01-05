@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 
 const GitHubContributionsChart = () => {
   const chartRef = useRef(null);
+  const chartInstance = useRef(null);
 
   // Fetch GitHub contributions using GraphQL
   const { githubData } = useStaticQuery(
@@ -46,10 +47,12 @@ const GitHubContributionsChart = () => {
     if (chartRef.current && contributionsByMonth) {
       const ctx = chartRef.current.getContext('2d');
 
-      if (chartRef.current.chart) {
-        chartRef.current.chart.destroy();
+      // if (chartRef.current.chart) {
+      //   chartRef.current.chart.destroy();
+      // }
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
       }
-
       // Extract data from contributions
       // const data = contributions.map((day) => day.contributionCount || 0);
       // const labels = contributions.map((day) => day.date);
@@ -69,7 +72,7 @@ const GitHubContributionsChart = () => {
         ],
       };
 
-      new Chart(ctx, {
+      chartInstance.current = new Chart(ctx, {
         type: 'bar',
         data: chartData,
         options: {
