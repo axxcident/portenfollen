@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 // import GitHubHeatmap from "../functions/githubHeatMap";
 import GitHubContributionsChart from "../functions/GitHubContributionsChart";
+import GitHubContributionsLines from "../functions/GithubContributionsLines";
+import LanguagePieChart from "../functions/LanguagePieChart";
 
 const HomePage = (contentfulPage) => {
 
@@ -39,8 +41,8 @@ const HomePage = (contentfulPage) => {
         <div>
           <h3>Mitt användarnamn på Github: {JSON.stringify(data.userInfo.login, null, 2)}</h3>
           <h3>Antal Repositories: {JSON.stringify(data.repositories.length, null, 2)}</h3>
-
-
+          <LanguagePieChart />
+          <GitHubContributionsLines />
           <GitHubContributionsChart />
           {/* <GitHubHeatmap contributions={data.contributions} /> */}
           {/* <pre>{JSON.stringify(data.contributions.length, null, 2)}</pre> */}

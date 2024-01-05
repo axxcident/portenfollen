@@ -57,21 +57,21 @@ module.exports = {
         token: process.env.GITHUB_PERSONAL_TOKEN,
         variables: {},
         graphQLQuery: `
-          query {
-            user(login: "axxcident") {
-              contributionsCollection {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      contributionCount
-                      date
-                    }
+        query {
+          user(login: "axxcident") {
+            contributionsCollection {
+              contributionCalendar {
+                totalContributions
+                weeks {
+                  contributionDays{
+                    contributionCount
+                    date
                   }
                 }
               }
             }
           }
+        }
         `,
       },
     },
