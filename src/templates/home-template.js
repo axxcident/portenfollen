@@ -9,17 +9,20 @@ const HomePage = (contentfulPage) => {
 
   return (
     <>
-      <section className="section">
+      <section className="section intro">
+      <div className="gradient-background-1"></div>
+      <img className="intro-pic" src="https://axels-portfolio.vercel.app/_next/image?url=%2Fme.jpg&w=256&q=95" alt="profile" />
       {/* <h2>{contentfulPage.titel}</h2> */}
       {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
+      <div className="gradient-background-3"></div>
       </section>
+    <section className="section GHCL">
+      <GitHubContributionsLines />
+    </section>
       <section className="section">
       <LanguagePieChart />
     </section>
-    <section className="section">
-      <GitHubContributionsLines />
-    </section>
-    <section className="section">
+    <section className="section ">
       <GitHubContributionsChart />
     </section>
     <section className="section">

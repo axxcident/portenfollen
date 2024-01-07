@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const GitHubContributionsLines = () => {
-
   // const [data, setData] = useState(null);
   const [totalAddedLines, setTotalAddedLines] = useState(0);
   const [totalRemovedLines, setTotalRemovedLines] = useState(0);
@@ -63,10 +62,10 @@ const GitHubContributionsLines = () => {
   }, []);
 
   return (
-    <div>
-      <h1>GitHub Contributions Lines</h1>
-      <p>Total Added Lines: {totalAddedLines}</p>
-      <p>Total Removed Lines: {totalRemovedLines}</p>
+    <div className='GitHubContributionsLines'>
+      <h3>Totalt antal skrivna rader kod sedan<br/>jag började på ITHS:</h3>
+      <p>Adderade Rader: <span className='adderade'>{totalAddedLines}</span></p>
+      <p>Borttagna Rader: <span className='borttagna'>{totalRemovedLines}</span></p>
       {/* <ul>
       {data &&
           data.map((repoData) => (
