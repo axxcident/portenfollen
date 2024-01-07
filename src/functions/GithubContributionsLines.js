@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 const GitHubContributionsLines = () => {
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
+  const [totalAddedLines, setTotalAddedLines] = useState(0);
+  const [totalRemovedLines, setTotalRemovedLines] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,38 +32,49 @@ const GitHubContributionsLines = () => {
               }
             );
             const codeFrequencyData = await codeFrequencyResponse.json();
-            // Process and use codeFrequencyData as needed for each repository
             // console.log(`Code frequency data for ${repoName}:`, codeFrequencyData);
-            // Return a simplified object with repo name and contributions
+
+            // Calculate total added and removed lines for each repository
+            const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
+            const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
+
+            // Update totals
+            setTotalAddedLines((prevTotal) => prevTotal + addedLines);
+            setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
+
             return {
               repoName,
-              contributions: codeFrequencyData,
+              addedLines,
+              removedLines,
+              // contributions: codeFrequencyData,
             };
           })
         );
 
         // Set the data for rendering
-        setData(contributionsData);
+        // setData(contributionsData);
       } catch (error) {
         console.error('Error fetching GitHub data:', error.message);
       }
     };
 
-      fetchData();
+    fetchData();
 
   }, []);
 
   return (
     <div>
       <h1>GitHub Contributions Lines</h1>
-      <ul>
+      <p>Total Added Lines: {totalAddedLines}</p>
+      <p>Total Removed Lines: {totalRemovedLines}</p>
+      {/* <ul>
       {data &&
           data.map((repoData) => (
             <li key={repoData.repoName}>
               <strong>{repoData.repoName}</strong>: {JSON.stringify(repoData.contributions)}
             </li>
           ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
