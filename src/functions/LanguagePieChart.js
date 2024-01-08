@@ -70,7 +70,7 @@ const LanguagePieChart = () => {
   }, [languagesData]);
 
   return (
-    <div>
+    <div className='LanguagePieChart'>
       <h1>GitHub Language Distribution</h1>
       <canvas id="languagePieChart" width="400" height="400"></canvas>
     </div>

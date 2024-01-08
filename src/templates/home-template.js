@@ -22,10 +22,13 @@ const HomePage = (contentfulPage) => {
     <section className="section">
       <LanguagePieChart />
     </section>
-    <section className="section ">
+    <section className="section bars">
       <GitHubContributionsChart />
     </section>
     <section className="section">
+      <article>
+        <h3>Tack för allt ITHS</h3>
+      </article>
       <GatsbyImage className="homepage-bild" image={getImage(contentfulPage.bilden.gatsbyImage)} alt={contentfulPage.titel} />
     </section>
     </>

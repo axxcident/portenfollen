@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
+import { useLocation } from "@reach/router";
 
 const useNavigation = () => {
   const data = useStaticQuery(graphql`
@@ -16,14 +17,25 @@ const useNavigation = () => {
     }
   `);
 
+  const location = useLocation();
+  const urls = ["/", "/about/", "/contact/", "/portfolio/"]
+
   return (
     <>
     <nav>
-      {/* Detta kommer inte funka med NEtlify http://localhost:8000 */}
       <ul className="headerlink-navigation">
-      {data.allContentfulPage.edges.map((edge) => (
+      {data.allContentfulPage.edges.map((edge, index) => (
+        // console.log("edge.node.url " + edge.node.url),
+        // console.log("location.pathname " +location.pathname),
         <li key={edge.node.id}>
-          <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link>
+          {/* <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link> edge.node.url+"/" */}
+          <Link
+              className={`headerlink${location.pathname === urls[index] ? " active" : ""}`}
+              to={`${edge.node.url}`}
+              data-filter={edge.node.titel}
+            >
+              {edge.node.titel}
+          </Link>
         </li>
       ))}
       </ul>

@@ -31,6 +31,12 @@ header {
     margin-left: 1rem;
 }
 
+.headerlink.active {
+    color: white;
+    background-color: #000000;
+    box-shadow: #000000 0px 0px 0px 1px;
+}
+
 #gatsby-focus-wrapper > header > nav > ul > li:nth-child(1) > a {
   margin-left: 0;
 }
@@ -217,4 +223,23 @@ body {
 section.section.intro > p > a {
   color: #000000;
   font-weight: bold;
+}
+
+.bars {
+  min-height: 35rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5rem auto;
+}
+
+.LanguagePieChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#languagePieChart {
+  max-width: 600px;
+  max-height: 600px;
 }
