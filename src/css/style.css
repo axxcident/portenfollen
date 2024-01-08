@@ -114,7 +114,8 @@ body {
 
 .gradient-background-1 {
   background-color: var(--color1);
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: -6rem;
   right: 11rem;
   z-index: -10;
@@ -129,7 +130,8 @@ body {
 
 .gradient-background-3 {
   background-color: var(--color3);
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: -1rem;
   right: -35rem;
   z-index: -10;
@@ -195,4 +197,8 @@ body {
   object-fit: cover;
   border: 0.35rem solid #fff;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+  max-width: 750px;
 }
