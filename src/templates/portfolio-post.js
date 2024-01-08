@@ -25,12 +25,14 @@ const PortfolioPost = (props) => {
   return (
     <Layout>
       <h3>{contentfulPosts.titel}</h3>
+      <div className="gradient-background-1"></div>
       <Link to="/portfolio/">Tillbaka till portolio sidan</Link>
       <div className="content">
         {contentfulPosts.bild.gatsbyImage && (
           <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
         )}
         {documentToReactComponents(JSON.parse(contentfulPosts.body.raw))}
+        <div className="gradient-background-3"></div>
       </div>
     </Layout>
   );

@@ -9,6 +9,7 @@ const PortfolioPage = (contentfulPage) => {
   return (
     <>
     <h2 className="portfolioh2">ITHS kurser jag förvärvat som Frontend utvecklare</h2>
+    <div className="gradient-background-1"></div>
     <ul className="kurslistan">
       {allPosts.edges.map((edge) => (
         <li key={edge.node.id} className="kursamne">
@@ -23,6 +24,7 @@ const PortfolioPage = (contentfulPage) => {
         </li>
       ))}
     </ul>
+    <div className="gradient-background-3"></div>
     </>
   );
 }

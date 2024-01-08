@@ -18,19 +18,17 @@ const useNavigation = () => {
   `);
 
   const location = useLocation();
-  const urls = ["/", "/about/", "/contact/", "/portfolio/"]
+  const urls = ["/", "/about/", "/contact/", "/portfolio/", "/portfolio-post/portfolio-post-php-wordpress/"]
 
   return (
     <>
     <nav>
       <ul className="headerlink-navigation">
       {data.allContentfulPage.edges.map((edge, index) => (
-        // console.log("edge.node.url " + edge.node.url),
-        // console.log("location.pathname " +location.pathname),
         <li key={edge.node.id}>
           {/* <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link> edge.node.url+"/" */}
           <Link
-              className={`headerlink${location.pathname === urls[index] ? " active" : ""}`}
+              className={`headerlink${location.pathname === urls[index] || location.pathname.includes("/portfolio-post/") && edge.node.url == "/portfolio" ? " active" : ""}`}
               to={`${edge.node.url}`}
               data-filter={edge.node.titel}
             >
