@@ -18,7 +18,7 @@ const useNavigation = () => {
   `);
 
   const location = useLocation();
-  const urls = ["/", "/about/", "/contact/", "/portfolio/", "/portfolio-post/portfolio-post-php-wordpress/"]
+  const urls = ["/", "/about/", "/contact/", "/portfolio/"]
 
   return (
     <>
