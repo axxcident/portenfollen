@@ -201,4 +201,20 @@ body {
 
 .intro {
   max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+  margin-top: 1rem;
+  padding: .5rem;
+  text-align: justify;
+}
+
+section.section.intro > p > a {
+  color: #000000;
+  font-weight: bold;
 }
