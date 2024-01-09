@@ -28,7 +28,7 @@ const useNavigation = () => {
         <li key={edge.node.id}>
           {/* <Link className="headerlink" to={`${edge.node.url}`}>{edge.node.titel}</Link> edge.node.url+"/" */}
           <Link
-              className={`headerlink${location.pathname === urls[index] || location.pathname.includes("/portfolio-post/") && edge.node.url == "/portfolio" ? " active" : ""}`}
+              className={`headerlink${location.pathname === urls[index] || (location.pathname.includes("/portfolio-post/") && edge.node.url === "/portfolio") ? " active" : ""}`}
               to={`${edge.node.url}`}
               data-filter={edge.node.titel}
             >

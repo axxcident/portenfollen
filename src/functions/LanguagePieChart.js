@@ -71,7 +71,9 @@ const LanguagePieChart = () => {
 
   return (
     <div className='LanguagePieChart'>
-      <h1>GitHub Language Distribution</h1>
+      {/* <h2>GitHub Language Distribution</h2> */}
+      <h2>Språk jag utvecklar i</h2>
+      <p>De språk och teknologier jag har utvecklat sidor, appar och funktioner i. Bland annat studieprojekt, arbetstest & hobbyhemsidor.<br /><i>Obs: project utvecklade med React syns ej</i></p>
       <canvas id="languagePieChart" width="400" height="400"></canvas>
     </div>
   );

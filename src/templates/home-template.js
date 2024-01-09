@@ -25,7 +25,7 @@ const HomePage = (contentfulPage) => {
     <section className="section bars">
       <GitHubContributionsChart />
     </section>
-    <section className="section">
+    <section className="section outro">
       <article>
         <h3>Tack för allt ITHS</h3>
       </article>

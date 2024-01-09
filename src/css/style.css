@@ -102,14 +102,35 @@ li {
   color: #2d3748;
 }
 
-footer {
+/* footer {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
   border-top: 1px solid #000000;
+} */
+
+.footer {
+  margin-bottom: 10px;
+  padding: 0 4px;
+  text-align: center;
+  color: #555555;
+  margin-top: 4rem;
+}
+
+.small {
+  margin-bottom: 2px;
+  display: block;
+  font-size: 12px;
+}
+
+.footer-paragraph {
+  font-size: 12px;
+}
+
+.my-bold {
+  font-weight: bold;
 }
 
 body {
@@ -292,7 +313,29 @@ section.section.intro > p > a {
   align-items: center;
 }
 
+.LanguagePieChart p {
+  text-align:justify;
+  width: 70%;
+  margin: 1rem auto;
+}
+
+.LanguagePieChart p > i {
+  display: flex;
+  justify-content: center;
+}
+
 #languagePieChart {
   max-width: 600px;
   max-height: 600px;
+}
+
+.homepage-bild {
+  border-radius: 3rem;
+}
+
+.outro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }

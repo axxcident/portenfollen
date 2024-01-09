@@ -7,13 +7,17 @@ const Layout = ({ children }) => (
     <>
       <header>
         {useNavigation()}
-        {/* <Link className="headerlink" to="/portfolio">Portfolio</Link> */}
-        {/* <Link className="headerlink" to="/">Hemsida</Link>
-        <Link className="headerlink" to="/about">about</Link>
-        <Link className="headerlink" to="/contact">Kontakt</Link> */}
       </header>
       <main>{children}</main>
-      <footer>Footer</footer>
+      <footer className="footer">
+        <small className="small">
+          &copy; 2023 Axel Olivecrona. All rights reserved.
+        </small>
+        <p className="footer-paragraph">
+          <span className="my-bold">About this website:</span> Byggd med Gatsby/React &
+          Contentful (Headless CMS), javascript, Server Side Generation & uppladdad via Netlify.
+        </p>
+    </footer>
     </>
   )
 
