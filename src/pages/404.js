@@ -5,7 +5,9 @@ import Layout from "../components/layout"
 //i dev mode overridas denna sida av en inbyggd 404-sida
 const NotFoundPage = () => (
   <Layout>
-    <h1>404: icke funnen</h1>
+    <div className="notfound">
+      <h1>404: icke funnen</h1>
+    </div>
   </Layout>
 )
 

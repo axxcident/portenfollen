@@ -3,11 +3,17 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage  } from "gatsby-plugin-image"
 import usePortfolioItems from "../hooks/usePortfolioItems";
+import { Helmet } from "react-helmet";
 
 const PortfolioPage = (contentfulPage) => {
   const allPosts = usePortfolioItems();
   return (
     <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Studie-Portfolio</title>
+      <meta name="description" content="ITHS kurser jag förvärvat som Frontend utvecklare" />
+    </Helmet>
     <h2 className="portfolioh2">ITHS kurser jag förvärvat som Frontend utvecklare</h2>
     <div className="gradient-background-1"></div>
     <ul className="kurslistan">

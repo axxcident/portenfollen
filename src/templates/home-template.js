@@ -4,11 +4,17 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import GitHubContributionsChart from "../functions/GitHubContributionsChart";
 import GitHubContributionsLines from "../functions/GithubContributionsLines";
 import LanguagePieChart from "../functions/LanguagePieChart";
+import { Helmet } from "react-helmet";
 
 const HomePage = (contentfulPage) => {
 
   return (
     <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Studie-Portfolio</title>
+      <meta name="description" content="Min digitala aktivitet på ITHS som aspirerande frontend utvecklare" />
+    </Helmet>
     <section className="section intro">
       <div className="gradient-background-1"></div>
       <img className="intro-pic" src="https://axels-portfolio.vercel.app/_next/image?url=%2Fme.jpg&w=256&q=95" alt="profile" />
