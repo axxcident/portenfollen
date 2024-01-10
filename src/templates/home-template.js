@@ -21,7 +21,7 @@ const HomePage = (contentfulPage) => {
        {/* <h2>{contentfulPage.titel}</h2> */}
       {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
     </section>
-    <section className="section GHCL">
+    <section className="section GHCL" id="GH-activity">
       <GitHubContributionsLines />
       <div className="gradient-background-3"></div>
     </section>

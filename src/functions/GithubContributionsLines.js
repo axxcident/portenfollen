@@ -19,7 +19,7 @@ const GitHubContributionsLines = () => {
         const reposData = await reposResponse.json();
 
         // Step 2: Fetch and process code frequency data for each repository
-        const contributionsData = await Promise.all(
+        await Promise.all(
           reposData.map(async (repo) => {
             const repoName = repo.name;
             const codeFrequencyResponse = await fetch(
@@ -33,20 +33,31 @@ const GitHubContributionsLines = () => {
             const codeFrequencyData = await codeFrequencyResponse.json();
             // console.log(`Code frequency data for ${repoName}:`, codeFrequencyData);
 
-            // Calculate total added and removed lines for each repository
-            const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
-            const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
+            // Ensure that codeFrequencyData is an array before attempting to reduce
+            if (Array.isArray(codeFrequencyData)) {
+              const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
+              const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
 
-            // Update totals
-            setTotalAddedLines((prevTotal) => prevTotal + addedLines);
-            setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
+              setTotalAddedLines((prevTotal) => prevTotal + addedLines);
+              setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
+            } else {
+              console.error('Invalid codeFrequencyData format:', codeFrequencyData);
+            }
 
-            return {
-              repoName,
-              addedLines,
-              removedLines,
-              // contributions: codeFrequencyData,
-            };
+            // // Calculate total added and removed lines for each repository
+            // const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
+            // const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
+
+            // // Update totals
+            // setTotalAddedLines((prevTotal) => prevTotal + addedLines);
+            // setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
+
+            // return {
+            //   repoName,
+            //   addedLines,
+            //   removedLines,
+            //   // contributions: codeFrequencyData,
+            // };
           })
         );
 

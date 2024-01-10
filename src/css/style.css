@@ -294,11 +294,14 @@ body {
 }
 
 .intro p {
-  font-size: 1.1rem;
-  line-height: 1.7rem;
+  font-size: 1.3rem;
+  line-height: 2rem;
   margin-top: 1rem;
   padding: .5rem;
   text-align: justify;
+  font-weight: 300;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
 }
 
 section.section.intro > p > a {
