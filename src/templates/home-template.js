@@ -33,9 +33,10 @@ const HomePage = (contentfulPage) => {
     </section>
     <section className="section outro">
       <article>
-        <h3>Tack för allt ITHS</h3>
+        <p> ITHS har varit en fantastisk möjlighet för mig att omforma min karriär mot något mer kreativt och givande. Jag önskar skolan och alla lärare, mina kamrater och kollegor all lycka framöver! Allt gott, Axel</p>
       </article>
       <GatsbyImage className="homepage-bild" image={getImage(contentfulPage.bilden.gatsbyImage)} alt={contentfulPage.titel} />
+        <h3>Tack för allt ITHS</h3>
     </section>
     </>
   );

@@ -22,12 +22,6 @@ main {
   justify-content: center;
 }
 
-/* header {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #000000;
-} */
 header {
   z-index: 999;
   position: relative;
@@ -44,6 +38,7 @@ nav {
   background-color: white;
   margin-top: 2rem;
   border-radius: 9999px;
+  box-shadow: #464646 0px 0px 3px 0px;
 }
 
 .headerlink-navigation {
@@ -57,10 +52,6 @@ nav {
   font-weight: medium;
   color: #718096;
 }
-/* .headerlink-navigation {
-  display: flex;
-  list-style: none;
-} */
 
 li {
   height: 75%;
@@ -80,21 +71,14 @@ li {
   color: #718096;
   text-decoration: none;
 }
-/* .headerlink {
-    text-decoration: none;
-    color: #000000;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-left: 1rem;
-} */
 
 .headerlink.active {
-    background-color: #f7fafc; /* bg-gray-100 in Tailwind */
+    background-color: #f7fafc;
     border-radius: 9999px;
-    /* box-shadow: #464646 1px 1px 0px 0px; */
     border: none;
     font-weight: bold;
     color: #000000;
+    padding: 0.5rem 0.75rem;
 }
 
 #gatsby-focus-wrapper > header > nav > ul > li:nth-child(1) > a {
@@ -108,15 +92,6 @@ li {
 .headerlink:active {
   color: #2d3748;
 }
-
-/* footer {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-top: 1px solid #000000;
-} */
 
 .footer {
   margin-bottom: 10px;
@@ -151,7 +126,6 @@ body {
 
 .kurslistan {
   list-style-type: none;
-  /* background-color: red; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -266,11 +240,20 @@ body {
   font-weight: bold;
   margin-top: 2rem;
   text-align: center;
+  border-radius: 1rem 1rem 0 0;
+  padding-top: 0.2rem;
 }
 
 .GitHubContributionsLines > p:nth-child(3) {
   font-style: italic;
   text-align: center;
+  border-radius: 0 0 1rem 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.GitHubContributionsLines > p {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
 }
 
 .adderade {
@@ -317,6 +300,13 @@ section.section.intro > p > a {
   margin: 5rem auto;
 }
 
+.bars-container p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  text-align: center;
+}
+
 .LanguagePieChart {
   display: flex;
   flex-direction: column;
@@ -326,12 +316,18 @@ section.section.intro > p > a {
 .LanguagePieChart p {
   text-align:justify;
   width: 70%;
-  margin: 1rem auto;
+  margin: 0.5rem auto 1rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem 0.5rem;
 }
 
 .LanguagePieChart p > i {
   display: flex;
   justify-content: center;
+  font-size: medium;
 }
 
 #languagePieChart {
@@ -348,4 +344,114 @@ section.section.intro > p > a {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+}
+
+.outro article p {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  padding: .5rem;
+  text-align: justify;
+  font-weight: 300;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+}
+
+section.section.outro > h3 {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* About */
+.about-container {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.about-container > h4 {
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  /* background-image: url("https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+  /* background-image: url("https://axels-portfolio.vercel.app/_next/image?url=%2Fme.jpg&w=256&q=95"); */
+  /* background-size: contain; */
+  background-image: linear-gradient(90deg, var(--color3), var(--color4));
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-container > p {
+  padding: 1rem 10rem;
+  line-height: 2rem;
+  font-size: larger;
+}
+
+
+.kontakt-container {
+  padding: 1rem 5rem;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* .kontakt-container h4 {
+  padding-bottom: 2rem;
+} */
+
+.kontakt {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.kontakt a.group {
+  background-color: #111827;
+  padding: 1rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  outline: none;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.kontakt a.group:hover {
+  transform: scale(1.1);
+}
+
+/* Styles for the LinkedIn and GitHub links */
+.kontakt a {
+  background-color: #111827;
+  color: #F3F3F4;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  outline: none;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.kontakt a:hover {
+  /* color: #950000; */
+  transform: scale(1.15);
+  margin: 0 .5rem;
+}
+
+/* Dark mode styles */
+.dark .kontakt a {
+  background-color: white;
+  color: #ffffff;
 }

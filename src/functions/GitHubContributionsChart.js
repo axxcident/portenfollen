@@ -63,7 +63,7 @@ const GitHubContributionsChart = () => {
         labels: labels,
         datasets: [
           {
-            label: 'Contributions per Month',
+            label: 'Antal commits per Månad',
             data: data,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
@@ -91,7 +91,8 @@ const GitHubContributionsChart = () => {
   // chartRef
 
   return (
-    <div>
+    <div className='bars-container'>
+      <p>Min aktivitet på Github:</p>
       <canvas ref={chartRef}></canvas>
     </div>
   );

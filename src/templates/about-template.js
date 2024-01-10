@@ -6,7 +6,9 @@ const AboutPage = (contentfulPage) => {
     <>
       {/* <h3>{contentfulPage.titel}</h3> */}
       <div className="gradient-background-1"></div>
-      {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
+      <div className="about-container">
+       {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
+      </div>
       <div className="gradient-background-3"></div>
     </>
   );
