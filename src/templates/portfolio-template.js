@@ -16,6 +16,7 @@ allPosts.edges.map((edge) => {
   // console.log("edge.node.categories", edge.node.categories); // Log the edge to see its structure
   katten.push(edge.node.categories);
   katten = katten.flat();
+  return "";
 });
 const categories = ["Alla", ...new Set(katten.map((category) => category.categoryName))];
 
@@ -53,14 +54,24 @@ const categories = ["Alla", ...new Set(katten.map((category) => category.categor
     })
       .map((edge) => (
         <li key={edge.node.id} className="kursamne">
-          <Link to={`/portfolio-post/${edge.node.slug}/`} className="ph2text_container">
-            <h3 className="kurstitel">
+          <Link to={`/portfolio-post/${edge.node.slug}/`} className="link_container">
+            <div className="bild-container">
+              <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
+            </div>
+            <div className="kurs-container">
+              <h3 className="kurstitel">
+                {edge.node.titel}
+                </h3>
+              <p className="kurstext">{edge.node.excerpt.childMarkdownRemark.excerpt}</p>
+              <span className="datum">Publicerat: {edge.node.bloggDatum}</span>
+            </div>
+            {/* <h3 className="kurstitel">
               {edge.node.titel}
               </h3>
             <p className="kurstext">{edge.node.excerpt.childMarkdownRemark.excerpt}</p>
-            <span className="datum">Publicerat: {edge.node.bloggDatum}</span>
+            <span className="datum">Publicerat: {edge.node.bloggDatum}</span> */}
           </Link>
-            <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
+            {/* <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} /> */}
         </li>
       ))}
     </ul>

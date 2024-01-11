@@ -19,7 +19,6 @@ const usePortfolioItems = () => {
           bloggDatum(formatString: "Do of MMMM YYYY")
           slug
           spaceId
-          kategori
           categories {
             categoryName
           }
@@ -28,15 +27,7 @@ const usePortfolioItems = () => {
     }
   }
 `)
-
   return data.allContentfulPosts;
-
-  // return data.allContentfulPosts.edges.map((edge) => ({
-  //   id: edge.node.id,
-  //   titel: edge.node.titel, ändra detta ifall det ska användas.
-  //   url: edge.node.url,
-  // }));
-
 };
 
 export default usePortfolioItems;
