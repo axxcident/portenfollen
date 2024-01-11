@@ -20,6 +20,9 @@ const usePortfolioItems = () => {
           slug
           spaceId
           kategori
+          categories {
+            categoryName
+          }
         }
       }
     }

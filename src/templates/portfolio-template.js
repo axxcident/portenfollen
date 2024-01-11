@@ -8,8 +8,16 @@ import { Helmet } from "react-helmet";
 const PortfolioPage = (contentfulPage) => {
   const [selectedCategory, setSelectedCategory] = useState("Alla");
   const allPosts = usePortfolioItems();
+  let katten = [];
 
-  const categories = ["Alla", ...new Set(allPosts.edges.map((edge) => edge.node.kategori),)];
+
+  // const categories = ["Alla", ...new Set(allPosts.edges.map((edge) => edge.node.kategori),)];
+allPosts.edges.map((edge) => {
+  // console.log("edge.node.categories", edge.node.categories); // Log the edge to see its structure
+  katten.push(edge.node.categories);
+  katten = katten.flat();
+});
+const categories = ["Alla", ...new Set(katten.map((category) => category.categoryName))];
 
   return (
     <>
@@ -24,6 +32,7 @@ const PortfolioPage = (contentfulPage) => {
       onChange={(e) => setSelectedCategory(e.target.value)}
     >
       {categories.map((category) => (
+        // console.log(categories),
         <option key={category} value={category}>
           {category}
         </option>
@@ -32,11 +41,16 @@ const PortfolioPage = (contentfulPage) => {
     <div className="gradient-background-1"></div>
     <ul className="kurslistan">
       {allPosts.edges
-        .filter((edge) =>
-        selectedCategory === "Alla"
-          ? true
-          : edge.node.kategori === selectedCategory
-      )
+    .filter((edge) => {
+      // console.log("selectedCategory:", selectedCategory);
+      // console.log("edge.node.categories:", edge.node.categories);
+      return (
+        selectedCategory === "Alla" ||
+        edge.node.categories.some(
+          (category) => category.categoryName === selectedCategory
+        )
+      );
+    })
       .map((edge) => (
         <li key={edge.node.id} className="kursamne">
           <Link to={`/portfolio-post/${edge.node.slug}/`} className="ph2text_container">
