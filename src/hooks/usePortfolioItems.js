@@ -19,6 +19,7 @@ const usePortfolioItems = () => {
           bloggDatum(formatString: "Do of MMMM YYYY")
           slug
           spaceId
+          kategori
         }
       }
     }
