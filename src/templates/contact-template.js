@@ -24,6 +24,7 @@ const ContactPage = (contentfulPage) => {
         <a
           href="https://www.linkedin.com/in/axel-olivecrona-077b17b8/"
           target="_blank"
+          rel="noopener noreferrer"
           className="bg-white text-gray-700 hover:text-gray-950 p-4 flex items-center gap-2 rounded-full cursor-pointer border border-black/10 focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition dark:bg-white/10 dark:text-white/60"
         >
           <BsLinkedin />
@@ -32,6 +33,7 @@ const ContactPage = (contentfulPage) => {
         <a
           href="https://github.com/axxcident"
           target="_blank"
+          rel="noopener noreferrer"
           className="bg-white text-gray-700 hover:text-gray-950 text-[1.35rem] p-4 flex items-center gap-2 rounded-full cursor-pointer border border-black/10 focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition dark:bg-white/10 dark:text-white/60"
         >
           <FaGithubSquare />
