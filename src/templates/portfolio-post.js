@@ -10,10 +10,13 @@ export const query = graphql`
       bloggDatum(formatString: "Do of MMMM YYYY")
       titel
       bild {
-        gatsbyImage(width: 700)
+        gatsbyImage(width: 1000)
       }
       body {
         raw
+      }
+      categories {
+        categoryName
       }
     }
   }
@@ -24,16 +27,18 @@ const PortfolioPost = (props) => {
 
   return (
     <Layout>
-      <h3>{contentfulPosts.titel}</h3>
       <div className="gradient-background-1"></div>
-      <Link to="/portfolio/">Tillbaka till portolio sidan</Link>
-      <div className="content">
-        {contentfulPosts.bild.gatsbyImage && (
-          <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
-        )}
-        {documentToReactComponents(JSON.parse(contentfulPosts.body.raw))}
-        <div className="gradient-background-3"></div>
+      <div className="single-post-container">
+        <h3>{contentfulPosts.titel}</h3>
+        <Link to="/portfolio/">Tillbaka till portolio sidan</Link>
+        <div className="single-post-bild">
+          {contentfulPosts.bild.gatsbyImage && (
+            <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
+          )}
+        </div>
+          {documentToReactComponents(JSON.parse(contentfulPosts.body.raw))}
       </div>
+        <div className="gradient-background-3"></div>
     </Layout>
   );
 };
