@@ -28,15 +28,30 @@ const PortfolioPost = (props) => {
   return (
     <Layout>
       <div className="gradient-background-1"></div>
+      <Link className='return-btn' to="/portfolio/">Tillbaka till portolio sidan</Link>
       <div className="single-post-container">
-        <h3>{contentfulPosts.titel}</h3>
-        <Link to="/portfolio/">Tillbaka till portolio sidan</Link>
+        <h2 className='single-post-title'>{contentfulPosts.titel}</h2>
         <div className="single-post-bild">
           {contentfulPosts.bild.gatsbyImage && (
             <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
           )}
         </div>
-          {documentToReactComponents(JSON.parse(contentfulPosts.body.raw))}
+        <div className="single-post-text-container">
+          <div className="single-post-meta">
+            <p className="single-post-date">{contentfulPosts.bloggDatum}</p>
+            <div className="single-post-categories">
+              <p>Teknologier:</p>
+              {contentfulPosts.categories.map((category) => (
+                <p key={category.categoryName} className="single-post-category">
+                  {category.categoryName}
+                </p>
+              ))}
+            </div>
+          </div>
+              <div className="single-post-text">
+                {documentToReactComponents(JSON.parse(contentfulPosts.body.raw))}
+              </div>
+        </div>
       </div>
         <div className="gradient-background-3"></div>
     </Layout>
