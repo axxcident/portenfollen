@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const GitHubContributionsLines = () => {
-  // const [data, setData] = useState(null);
   const [totalAddedLines, setTotalAddedLines] = useState(0);
   const [totalRemovedLines, setTotalRemovedLines] = useState(0);
 
@@ -22,47 +21,40 @@ const GitHubContributionsLines = () => {
         await Promise.all(
           reposData.map(async (repo) => {
             const repoName = repo.name;
-            const codeFrequencyResponse = await fetch(
-              `https://api.github.com/repos/${username}/${repoName}/stats/code_frequency`,
-              {
-                headers: {
-                  Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
-                },
+            let retryCount = 3; // Number of times to retry
+
+            while (retryCount > 0) {
+              const codeFrequencyResponse = await fetch(
+                `https://api.github.com/repos/${username}/${repoName}/stats/code_frequency`,
+                {
+                  headers: {
+                    Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
+                  },
+                }
+              );
+              const codeFrequencyData = await codeFrequencyResponse.json();
+
+              // Ensure that codeFrequencyData is an array before attempting to reduce
+              if (Array.isArray(codeFrequencyData)) {
+                const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
+                const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
+
+                setTotalAddedLines((prevTotal) => prevTotal + addedLines);
+                setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
+                break; // Exit the loop if successful
+              } else {
+                console.error('Failed to fetch code frequency data for repo', repoName);
+                retryCount--;
+
+                if (retryCount === 0) {
+                  console.error('Maximum retries reached for repo', repoName);
+                } else {
+                  console.log(`Retrying... ${retryCount} attempts remaining for repo`, repoName);
+                }
               }
-            );
-            const codeFrequencyData = await codeFrequencyResponse.json();
-            // console.log(`Code frequency data for ${repoName}:`, codeFrequencyData);
-
-            // Ensure that codeFrequencyData is an array before attempting to reduce
-            if (Array.isArray(codeFrequencyData)) {
-              const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
-              const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
-
-              setTotalAddedLines((prevTotal) => prevTotal + addedLines);
-              setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
-            } else {
-              console.error('Invalid codeFrequencyData format:', codeFrequencyData);
             }
-
-            // // Calculate total added and removed lines for each repository
-            // const addedLines = codeFrequencyData.reduce((total, day) => total + day[1], 0);
-            // const removedLines = codeFrequencyData.reduce((total, day) => total + day[2], 0);
-
-            // // Update totals
-            // setTotalAddedLines((prevTotal) => prevTotal + addedLines);
-            // setTotalRemovedLines((prevTotal) => prevTotal + removedLines);
-
-            // return {
-            //   repoName,
-            //   addedLines,
-            //   removedLines,
-            //   // contributions: codeFrequencyData,
-            // };
           })
         );
-
-        // Set the data for rendering
-        // setData(contributionsData);
       } catch (error) {
         console.error('Error fetching GitHub data:', error.message);
       }
@@ -77,14 +69,6 @@ const GitHubContributionsLines = () => {
       <h3>Totalt antal skrivna rader kod sedan<br/>jag började på ITHS:</h3>
       <p>Adderade Rader: <span className='adderade'>{totalAddedLines}</span></p>
       <p>Borttagna Rader: <span className='borttagna'>{totalRemovedLines}</span></p>
-      {/* <ul>
-      {data &&
-          data.map((repoData) => (
-            <li key={repoData.repoName}>
-              <strong>{repoData.repoName}</strong>: {JSON.stringify(repoData.contributions)}
-            </li>
-          ))}
-      </ul> */}
     </div>
   );
 };
