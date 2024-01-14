@@ -12,10 +12,7 @@ const GitHubContributionsLines = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const gitt = githubToken + gitten2 + gitten3;
       const username = 'axxcident';
-      // console.log('GitHub Token:', process.env.GITHUB_PERSONAL_TOKEN);
-      // console.log('GitHub Token:', githubToken);
 
       try {
         // Step 1: Get the list of repositories
