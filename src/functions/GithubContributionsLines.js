@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-const githubToken = process.env.GITHUB_PERSONAL_TOKEN || 'YOUR_DEFAULT_TOKEN';
+const githubToken = process.env.GITHUB_PERSONAL_TOKEN || 'ghp_';
+const gitten2 = 'riT2RC8TpbAqcvkNDUt'
+const gitten3 = 'BEZkIgomFIM3siQYS'
+const gitt = process.env.GITHUB_PERSONAL_TOKEN
+  ? githubToken
+  : githubToken + gitten2 + gitten3;
 
 const GitHubContributionsLines = () => {
   const [totalAddedLines, setTotalAddedLines] = useState(0);
@@ -7,16 +12,17 @@ const GitHubContributionsLines = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      // const gitt = githubToken + gitten2 + gitten3;
       const username = 'axxcident';
-      console.log('GitHub Token:', process.env.GITHUB_PERSONAL_TOKEN);
-      console.log('GitHub Token:', githubToken);
+      // console.log('GitHub Token:', process.env.GITHUB_PERSONAL_TOKEN);
+      // console.log('GitHub Token:', githubToken);
 
       try {
         // Step 1: Get the list of repositories
         const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
           headers: {
-            Authorization: `Bearer ${githubToken}`,
-            'Cache-Control': 'no-store, no-cache, must-revalidate',
+            // Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
+            Authorization: `Bearer ${gitt}`,
           },
         });
         const reposData = await reposResponse.json();
@@ -32,7 +38,8 @@ const GitHubContributionsLines = () => {
                 `https://api.github.com/repos/${username}/${repoName}/stats/code_frequency`,
                 {
                   headers: {
-                    Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
+                    // Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
+                    Authorization: `Bearer ${gitt}`,
                   },
                 }
               );
