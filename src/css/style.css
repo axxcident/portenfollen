@@ -223,6 +223,13 @@ li {
 
 .single-post-text {
   padding: 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-post-text * {
+  max-width: 880px;
 }
 
 .single-post-text > p {
@@ -230,6 +237,7 @@ li {
   font-weight: 300;
   line-height: 1.8rem;
   text-align: justify;
+  max-width: 880px;
 }
 
 .single-post-meta {
