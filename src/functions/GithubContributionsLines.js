@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+const githubToken = process.env.GITHUB_PERSONAL_TOKEN || 'YOUR_DEFAULT_TOKEN';
 
 const GitHubContributionsLines = () => {
   const [totalAddedLines, setTotalAddedLines] = useState(0);
@@ -7,6 +8,8 @@ const GitHubContributionsLines = () => {
   useEffect(() => {
     const fetchData = async () => {
       const username = 'axxcident';
+      console.log('GitHub Token:', process.env.GITHUB_PERSONAL_TOKEN);
+      console.log('GitHub Token:', githubToken);
 
       try {
         // Step 1: Get the list of repositories
