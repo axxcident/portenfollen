@@ -15,7 +15,8 @@ const GitHubContributionsLines = () => {
         // Step 1: Get the list of repositories
         const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
           headers: {
-            Authorization: `Bearer ${process.env.GITHUB_PERSONAL_TOKEN}`,
+            Authorization: `Bearer ${githubToken}`,
+            'Cache-Control': 'no-store, no-cache, must-revalidate',
           },
         });
         const reposData = await reposResponse.json();
