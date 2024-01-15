@@ -6,6 +6,7 @@
   "author": "Axel Olivecrona <olivecrona.axel@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.19.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^3.0.2",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
     "chart.js": "^4.4.1",
