@@ -137,11 +137,14 @@ li {
   border-radius: 0 1rem 1rem 0;
 }
 
-.search-input-container label {
-  padding: 5px 10px 5px 5px;
+.search-input-container button {
+  padding: 6px 10px 5px 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 0.9rem;
 }
 
-.search-input-container label:hover {
+.search-input-container button:hover {
   color: #111316;
   cursor: pointer;
   font-weight: bolder;

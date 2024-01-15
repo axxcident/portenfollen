@@ -37,7 +37,8 @@ const useNavigation = () => {
     navigate(`/search?query=${searchInput}`);
   };
 
-  const handleLabelClick = () => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
     redirectToSearch();
   };
 
@@ -65,13 +66,13 @@ const useNavigation = () => {
           <FaSearch />
         </li>
         {isSearchActive && (
-        <div className="search-input-container">
+        <form className="search-input-container" onSubmit={handleFormSubmit}>
           <input type="text"
             className="search-bar"
             value={searchInput}
             onChange={handleInputChange} />
-          <label onClick={handleLabelClick}>Sök</label>
-        </div>
+          <button type="submit">Sök</button>
+        </form>
           )}
       </ul>
     </nav>
