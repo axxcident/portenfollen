@@ -132,10 +132,23 @@ li {
 .search-input-container {
   background-color: #f7fafc;
   height: 32px;
+  display: flex;
+  align-items: center;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.search-input-container label {
+  padding: 5px 10px 5px 5px;
+}
+
+.search-input-container label:hover {
+  color: #111316;
+  cursor: pointer;
+  font-weight: bolder;
 }
 
 .widebar {
-  width: 36rem;
+  width: 39rem;
 }
 
 /* Navigation bar - ENDS */
@@ -566,6 +579,23 @@ section.section.outro > h3 {
   font-size: larger;
 }
 /* About Page - ENDS */
+
+/* Search Page */
+.search-container {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.search-container > p {
+  padding: 1rem 10rem;
+  line-height: 2rem;
+  font-size: larger;
+}
+
+/* Search Page ENDS */
 
 /* kontakt Page */
 .kontakt-container {

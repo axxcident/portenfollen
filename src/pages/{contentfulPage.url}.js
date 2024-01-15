@@ -8,6 +8,7 @@ import AboutTemplate from "../templates/about-template"
 import ContactTemplate from "../templates/contact-template"
 import HomeTemplate from "../templates/home-template"
 import PortTemplate from "../templates/portfolio-template"
+import SearchTemplate from "../templates/search-template"
 
 const Page = ( props ) => {
 
@@ -21,6 +22,8 @@ const Page = ( props ) => {
         return <ContactTemplate {...contentfulPage} />
       case "portfolio-template":
         return <PortTemplate {...contentfulPage} />
+        case "search-template":
+          return <SearchTemplate {...contentfulPage} />
       default:
         return <HomeTemplate {...contentfulPage} />
     }

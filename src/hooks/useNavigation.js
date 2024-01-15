@@ -1,34 +1,46 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 import { useLocation } from "@reach/router";
 import { FaSearch } from "react-icons/fa";
 
 const useNavigation = () => {
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+
   const data = useStaticQuery(graphql`
-    query {
-      allContentfulPage(sort: {url: ASC}) {
-        edges {
-          node {
-            id
-            titel
-            url
-          }
+  query {
+    allContentfulPage(filter: {url: {ne: "/search"}}, sort: {url: ASC}) {
+      edges {
+        node {
+          id
+          titel
+          url
         }
       }
     }
+  }
   `);
 
   const location = useLocation();
   const urls = ["/", "/about/", "/contact/", "/portfolio/"]
-  const [isSearchActive, setIsSearchActive] = useState(false);
+
   const handleSearch = () => {
     setIsSearchActive(!isSearchActive);
   }
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handleSearch();
-    }
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
   };
+
+  const redirectToSearch = () => {
+    // Pass the searchInput as a prop to SearchTemplate
+    navigate(`/search?query=${searchInput}`);
+  };
+
+  const handleLabelClick = () => {
+    redirectToSearch();
+  };
+
 
   return (
     <>
@@ -47,7 +59,6 @@ const useNavigation = () => {
       ))}
         <li className={`search-icon ${isSearchActive ? "active" : ""}`}
             onClick={handleSearch}
-            onKeyPress={handleKeyPress}
             role="button"
             tabIndex="0"
             >
@@ -55,7 +66,11 @@ const useNavigation = () => {
         </li>
         {isSearchActive && (
         <div className="search-input-container">
-          <input type="text" className="search-bar" />
+          <input type="text"
+            className="search-bar"
+            value={searchInput}
+            onChange={handleInputChange} />
+          <label onClick={handleLabelClick}>Sök</label>
         </div>
           )}
       </ul>
