@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useLocation } from "@reach/router";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Search from "../functions/Search";
 
 const SearchPage = (contentfulPage) => {
   const location = useLocation();
@@ -16,6 +17,8 @@ const SearchPage = (contentfulPage) => {
          <p>Search query: {query}</p>
          // Render your search results or perform other actions based on the query
        )}
+        {/* sökfunktionen */}
+        <Search />
       </div>
       <div className="gradient-background-3"></div>
     </>
