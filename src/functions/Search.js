@@ -63,7 +63,6 @@ const Search = () => {
         {results.map((page) => (
           <li key={page.id}>
             <Link to={`/portfolio-post/${page.Slug}`}>{page.titel}</Link>
-            {/* <p>Category: {page.categories.categoryName}</p> */}
           </li>
         ))}
       </ul>
