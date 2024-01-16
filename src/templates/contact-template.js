@@ -7,7 +7,8 @@ import { FaPaperPlane } from "react-icons/fa";
 
 const ContactPage = (contentfulPage) => {
 
-  const [pending, setPending] = React.useState(false);
+  const [pending ] = React.useState(false);
+  // const [pending, setPending] = React.useState(false);
 
   return (
     <>

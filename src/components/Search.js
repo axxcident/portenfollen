@@ -69,9 +69,9 @@ const Search = () => {
           ))}
         </ul>
       ) : (
-        <ul className="search-list">
+        <div className="search-list">
           <p className="no-results-p">No results found</p>
-        </ul>
+        </div>
       )}
 
       {/* <ul className="search-list">

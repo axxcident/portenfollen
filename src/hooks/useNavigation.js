@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery, Link, navigate } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { useLocation } from "@reach/router";
 import { FaSearch } from "react-icons/fa";
-import Search from "../functions/search";
+import Search from "../components/Search";
 
 const useNavigation = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
 
   const data = useStaticQuery(graphql`
   query {
@@ -29,19 +29,19 @@ const useNavigation = () => {
     setIsSearchActive(!isSearchActive);
   }
 
-  const handleInputChange = (event) => {
-    setSearchInput(event.target.value);
-  };
+  // const handleInputChange = (event) => {
+  //   setSearchInput(event.target.value);
+  // };
 
-  const redirectToSearch = () => {
-    // Pass the searchInput as a prop to SearchTemplate
-    navigate(`/search?query=${searchInput}`);
-  };
+  // const redirectToSearch = () => {
+  //   // Pass the searchInput as a prop to SearchTemplate
+  //   navigate(`/search?query=${searchInput}`);
+  // };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    redirectToSearch();
-  };
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   redirectToSearch();
+  // };
 
 
   return (
