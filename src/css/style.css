@@ -132,9 +132,11 @@ li {
 .search-input-container {
   background-color: #f7fafc;
   height: 32px;
+  width: 185px;
   display: flex;
   align-items: center;
   border-radius: 0 1rem 1rem 0;
+  position: relative;
 }
 
 .search-input-container button {
@@ -150,8 +152,27 @@ li {
   font-weight: bolder;
 }
 
+.search-list {
+  position: absolute;
+  left: 0px;
+  top: 1.81rem;
+  width: 180px;
+  background-color: aliceblue;
+  padding: 0.5rem;
+  border: 1px solid #8f8f8f;
+  border-radius: 5px 5px 1rem 1rem;
+}
+
+.search-list li a {
+  /* display: block; */
+  padding: 0.2rem;
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
 .widebar {
-  width: 39rem;
+  width: 36rem;
 }
 
 /* Navigation bar - ENDS */

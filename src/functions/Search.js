@@ -52,14 +52,15 @@ const Search = () => {
   }, [query, searchIndex]);
 
   return (
-    <div>
+    <>
       <input
+        className="search-bar"
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      <ul>
+      <ul className="search-list">
         {results.map((page) => (
           <li key={page.id}>
             <Link to={`/portfolio-post/${page.Slug}`}>{page.titel}</Link>
@@ -67,8 +68,8 @@ const Search = () => {
         ))}
       </ul>
 
-      {query && <p>Search query: {query}</p>}
-    </div>
+      {/* {query && <p>Search query: {query}</p>} */}
+    </>
   );
 };
 

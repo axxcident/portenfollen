@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { graphql, useStaticQuery, Link, navigate } from "gatsby";
 import { useLocation } from "@reach/router";
 import { FaSearch } from "react-icons/fa";
+import Search from "../functions/search";
 
 const useNavigation = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -60,19 +61,22 @@ const useNavigation = () => {
       ))}
         <li className={`search-icon ${isSearchActive ? "active" : ""}`}
             onClick={handleSearch}
-            role="button"
-            tabIndex="0"
+            // role="button"
+            // tabIndex="0"
             >
           <FaSearch />
         </li>
         {isSearchActive && (
-        <form className="search-input-container" onSubmit={handleFormSubmit}>
-          <input type="text"
-            className="search-bar"
-            value={searchInput}
-            onChange={handleInputChange} />
-          <button type="submit">Sök</button>
-        </form>
+        // <form className="search-input-container" onSubmit={handleFormSubmit}>
+        //   <input type="text"
+        //     className="search-bar"
+        //     value={searchInput}
+        //     onChange={handleInputChange} />
+        //   <button type="submit">Sök</button>
+        // </form>
+          <div className="search-input-container">
+            <Search />
+          </div>
           )}
       </ul>
     </nav>
