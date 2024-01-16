@@ -60,13 +60,27 @@ const Search = () => {
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      <ul className="search-list">
+      {results.length > 0 ? (
+        <ul className="search-list">
+          {results.map((page) => (
+            <li key={page.id}>
+              <Link to={`/portfolio-post/${page.Slug}`}>{page.titel}</Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul className="search-list">
+          <p className="no-results-p">No results found</p>
+        </ul>
+      )}
+
+      {/* <ul className="search-list">
         {results.map((page) => (
           <li key={page.id}>
             <Link to={`/portfolio-post/${page.Slug}`}>{page.titel}</Link>
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       {/* {query && <p>Search query: {query}</p>} */}
     </>

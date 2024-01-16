@@ -171,6 +171,12 @@ li {
   font-size: 0.9rem;
 }
 
+.no-results-p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #8f8f8f;
+}
+
 .widebar {
   width: 36rem;
 }
