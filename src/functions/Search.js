@@ -5,7 +5,7 @@ import { Index } from "elasticlunr";
 const Search = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  const [searchIndex, setSearchIndex] = useState(null); // New state for searchIndex
+  const [searchIndex, setSearchIndex] = useState(null);
 
   const data = useStaticQuery(graphql`
     query {
@@ -62,7 +62,7 @@ const Search = () => {
       <ul>
         {results.map((page) => (
           <li key={page.id}>
-            <Link to={`/${page.slug}`}>{page.titel}</Link>
+            <Link to={`/portfolio-post/${page.Slug}`}>{page.titel}</Link>
             {/* <p>Category: {page.categories.categoryName}</p> */}
           </li>
         ))}
