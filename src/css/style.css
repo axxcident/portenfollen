@@ -934,6 +934,7 @@ section.section.outro > h3 {
 }
 /* 404 page ENDS */
 
+/* Mobil / Responsivitet */
 @media (max-width: 610px) {
   .select {
     width: 90%;
@@ -1014,7 +1015,7 @@ section.section.outro > h3 {
   }
 
   .headerlink-navigation {
-    justify-content: none;
+    justify-content: start;
   }
 
   .search-input-container {
@@ -1127,7 +1128,14 @@ section.section.outro > h3 {
     width: 10rem;
     border-radius: 1rem;
   }
+}
 
+@media (max-width: 405px) {
+  .headerlink-navigation li {
+    height: 55%;
+  }
 
-  /* Add more styles as needed */
+  .email-container {
+    max-width: 350px;
+  }
 }
