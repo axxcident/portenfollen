@@ -27,14 +27,15 @@ const categories = ["Alla", ...new Set(katten.map((category) => category.categor
       <title>Studie-Portfolio</title>
       <meta name="description" content="ITHS kurser jag förvärvat som Frontend utvecklare" />
     </Helmet>
-    <h2 className="portfolioh2">ITHS kurser jag förvärvat som Frontend utvecklare</h2>
+    <h2 className="portfolioh2">ITHS kurser jag förvärvat som <span>Frontend utvecklare</span></h2>
     <select
+      className="select"
       value={selectedCategory}
       onChange={(e) => setSelectedCategory(e.target.value)}
     >
       {categories.map((category) => (
         // console.log(categories),
-        <option key={category} value={category}>
+        <option className="option" key={category} value={category}>
           {category}
         </option>
       ))}
