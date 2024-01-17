@@ -895,7 +895,6 @@ section.section.outro > h3 {
 /* kontakt Page - ENDS*/
 
 /* 404 page */
-
 .notfound-container {
   position: relative;
 }
@@ -918,6 +917,10 @@ section.section.outro > h3 {
 
 .notfound-bild {
   width: 100%;
+}
+
+#gatsby-focus-wrapper > main > div.notfound-container > div.notfound-img > div > div:nth-child(1) {
+  max-width: none;
 }
 
 #gatsby-focus-wrapper > main > div.\34 04-container > div.notfound-img > div > div:nth-child(1) {

@@ -17,7 +17,14 @@ const NotFOundPage = (contentfulPage) => {
           {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
         </div>
         <div className="notfound-img">
-          <GatsbyImage className="notfound-bild" image={getImage(contentfulPage.bilden.gatsbyImage)} alt={contentfulPage.titel} />
+        {contentfulPage.bilden && contentfulPage.bilden.gatsbyImage && (
+            <GatsbyImage
+              className="notfound-bild"
+              image={getImage(contentfulPage.bilden.gatsbyImage)}
+              alt={contentfulPage.titel}
+            />
+          )}
+          {/* <GatsbyImage className="notfound-bild" image={getImage(contentfulPage.bilden.gatsbyImage)} alt={contentfulPage.titel} /> */}
         </div>
       </div>
       <div className="gradient-background-3"></div>
