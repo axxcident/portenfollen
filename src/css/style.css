@@ -985,5 +985,19 @@ section.section.outro > h3 {
     width: 99%;
   }
 
+  .about-container {
+    padding: 1rem 0;
+  }
+
+  .about-container > h4 {
+    font-size: 5rem;
+  }
+
+  .about-container > p {
+    padding: 1rem 1rem;
+    font-size: 1.6rem;
+    text-align: justify;
+  }
+
   /* Add more styles as needed */
 }
