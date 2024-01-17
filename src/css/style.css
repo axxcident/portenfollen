@@ -895,12 +895,40 @@ section.section.outro > h3 {
 /* kontakt Page - ENDS*/
 
 /* 404 page */
-.notfound {
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.notfound-container {
+  position: relative;
 }
+
+.notfound {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  z-index: 1;
+}
+.notfound-img {
+  width: 100%;
+}
+
+.notfound-bild {
+  width: 100%;
+}
+
+#gatsby-focus-wrapper > main > div.\34 04-container > div.notfound-img > div > div:nth-child(1) {
+  max-width: none;
+}
+
+#gatsby-focus-wrapper > main > div.\34 04-container > div.notfound-img > div > picture > img {
+  object-fit: cover;
+  object-position: center 0;
+}
+
 /* 404 page ENDS */
 
 /* Mobil / Responsivitet */

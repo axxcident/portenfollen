@@ -10,7 +10,7 @@ const useNavigation = () => {
 
   const data = useStaticQuery(graphql`
   query {
-    allContentfulPage(filter: {url: {ne: "/search"}}, sort: {url: ASC}) {
+    allContentfulPage(filter: {url: {ne: "/404"}}, sort: {url: ASC}) {
       edges {
         node {
           id
