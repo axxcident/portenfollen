@@ -7,13 +7,38 @@ import { HiDownload } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 
 const ContactPage = (contentfulPage) => {
+  const [pending, setPending] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(false);
+  const [userMessage, setUserMessage] = React.useState("");
 
-  const [pending ] = React.useState(false);
-  // const [pending, setPending] = React.useState(false);
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    // Save the user's message
+    setUserMessage(event.target.message.value);
+    // Show the custom modal
+    setShowModal(true);
+    // Clear the form or perform other actions as needed
+    event.target.reset();
+    setPending(false);
+  };
+
+  const closeModal = () => {
+    // Close the custom modal
+    setShowModal(false);
+  };
+
+  // const handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   alert(
+  //     "Email funkar inte än. Använd istället länken nedan för att skicka mig ett mejl:\n\n" +
+  //       event.target.message.value
+  //   );
+  //   event.target.reset();
+  //   setPending(false);
+  // };
 
   return (
     <>
-      {/* <h3>{contentfulPage.titel}</h3> */}
       <div className="gradient-background-1"></div>
       <div className="kontakt-container">
         {documentToReactComponents(JSON.parse(contentfulPage.content.raw))}
@@ -52,7 +77,9 @@ const ContactPage = (contentfulPage) => {
           <div className="email-container">
             <form
               name="contact"
-              className="contact-form">
+              className="contact-form"
+              onSubmit={handleFormSubmit}
+              >
               <input
                 className="form-input"
                 name="senderEmail"
@@ -90,6 +117,21 @@ const ContactPage = (contentfulPage) => {
                 </p>
               </div>
             </form>
+            {showModal && (
+              <div className="custom-modal">
+                <div className="modal-content">
+                  <p>
+                    Email funkar inte än. Kopiera ditt meddelande och använd istället länken nedan för att skicka mig ett mejl:
+                  </p>
+                  <textarea
+                    readOnly
+                    value={userMessage}
+                    onClick={(e) => e.target.select()}
+                  />
+                  <button onClick={closeModal}>Close</button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

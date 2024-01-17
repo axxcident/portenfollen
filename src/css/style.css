@@ -829,4 +829,48 @@ section.section.outro > h3 {
   }
 }
 
+.custom-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+
+/* Styles for the modal content */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Styles for the close button */
+.modal-content button {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styles for the textarea */
+.modal-content textarea {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  resize: none;
+}
+
+/* Hide the scrollbar for the textarea */
+.modal-content textarea::-webkit-scrollbar {
+  display: none;
+}
+
 /* kontakt Page - ENDS*/
