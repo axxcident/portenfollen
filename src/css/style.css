@@ -896,6 +896,7 @@ section.section.outro > h3 {
 
 /* 404 page */
 .notfound-container {
+  height: 75vh;
   position: relative;
 }
 
