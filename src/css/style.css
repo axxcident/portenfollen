@@ -972,6 +972,31 @@ section.section.outro > h3 {
     object-fit: cover;
     object-position: center -1rem;
   }
+
+  .single-post-meta {
+    margin: 10px;
+    flex-direction: column;
+    /* justify-content: space-around; */
+  }
+
+  .single-post-categories {
+    display: block;
+  }
+  .single-post-categories p {
+    margin-left: 0;
+    padding: 0.2rem;
+    text-align: center;
+  }
+  #gatsby-focus-wrapper > main > div.single-post-container > div.single-post-text-container > div.single-post-meta > div > p:nth-child(1) {
+    font-weight: 500;
+  }
+  #gatsby-focus-wrapper > main > div.single-post-container > div.single-post-text-container > div.single-post-meta > div > p:not(:first-child) {
+    border: 1px solid #999999
+  }
+
+  .single-post-text {
+    padding: 1rem;
+  }
 }
 
 /* Mobil / Responsivitet */
