@@ -934,6 +934,45 @@ section.section.outro > h3 {
 }
 /* 404 page ENDS */
 
+@media (max-width: 610px) {
+  .select {
+    width: 90%;
+  }
+
+  .portfolioh2 {
+    font-size: 3rem;
+  }
+
+  .kurslistan {
+    padding: 0;
+  }
+
+  .kurs-container {
+    padding: 0.5rem;
+  }
+
+  .kursamne {
+    padding: 0;
+  }
+
+  .kurstitel {
+    font-size: 1.2rem;
+  }
+
+  .bild-container {
+    width: 150px;
+    padding: 0.5rem;
+  }
+  .kursbild {
+    height: 100%;
+    width: 100%;
+  }
+
+  #gatsby-focus-wrapper > main > ul > li:nth-child(5) > a > div.bild-container > div > div:nth-child(1) > img {
+    object-fit: cover;
+    object-position: center -1rem;
+  }
+}
 
 /* Mobil / Responsivitet */
 @media (max-width: 500px) {
