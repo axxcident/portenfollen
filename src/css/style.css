@@ -932,7 +932,58 @@ section.section.outro > h3 {
   object-fit: cover;
   object-position: center 0;
 }
-
 /* 404 page ENDS */
 
+
 /* Mobil / Responsivitet */
+@media (max-width: 500px) {
+  /* body {
+    font-size: 14px;
+  } */
+
+  nav {
+    width: 99.9vw;
+    top: 0rem;
+    height: 5rem;
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .headerlink-navigation {
+    justify-content: none;
+  }
+
+  .search-input-container {
+    width: 90%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-list {
+    width: 99%;
+  }
+
+  .section {
+    width: 100%;
+    margin: 0;
+    min-height: 0;
+  }
+
+  .GHCL {
+    display: block;
+    height: 13rem;
+    margin: 3rem 0 !important;
+  }
+
+  .GitHubContributionsLines {
+    height: 100%;
+  }
+
+  .LanguagePieChart p {
+    width: 99%;
+  }
+
+  /* Add more styles as needed */
+}
