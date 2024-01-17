@@ -87,10 +87,6 @@ li {
     padding: 0.5rem 0.75rem;
 }
 
-#gatsby-focus-wrapper > header > nav > ul > li:nth-child(1) > a {
-  margin-left: 0;
-}
-
 .headerlink:hover {
   color: #4a5568;
 }
@@ -100,25 +96,39 @@ li {
 }
 
 .search-icon {
-  /* search-icon: url("https://img.icons8.com/ios-filled/50/000000/search--v1.png"); */
   margin-left: 0.5rem;
   cursor: pointer;
   height: 32px;
   width: 30px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
 }
 
-.search-icon:hover {
+#forstoringsglaset {
+  font-size: 1.25rem;
+  color: #718096;
+}
+
+#forstoringsglaset:hover {
   color: #4a5568;
 }
 
-.search-icon:active {
+#forstoringsglaset:active {
   color: #2d3748;
+}
+
+
+.search-icon.active #forstoringsglaset {
+  color: #2d2d2d;
 }
 
 .search-icon.active {
   background-color: #f7fafc;
   border-radius: 1rem 0 0 1rem;
-  color: #000000;
 }
 
 .search-bar {

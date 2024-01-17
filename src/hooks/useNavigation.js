@@ -59,21 +59,13 @@ const useNavigation = () => {
           </Link>
         </li>
       ))}
-        <li className={`search-icon ${isSearchActive ? "active" : ""}`}
-            onClick={handleSearch}
-            // role="button"
-            // tabIndex="0"
-            >
-          <FaSearch />
-        </li>
+        <button className={`search-icon ${isSearchActive ? "active" : ""}`} onClick={handleSearch}>
+          <FaSearch id="forstoringsglaset" />
+        </button>
+        {/* <li className={`search-icon ${isSearchActive ? "active" : ""}`} onClick={handleSearch}>
+            <FaSearch />
+          </li> */}
         {isSearchActive && (
-        // <form className="search-input-container" onSubmit={handleFormSubmit}>
-        //   <input type="text"
-        //     className="search-bar"
-        //     value={searchInput}
-        //     onChange={handleInputChange} />
-        //   <button type="submit">Sök</button>
-        // </form>
           <div className="search-input-container">
             <Search />
           </div>
