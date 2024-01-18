@@ -333,6 +333,19 @@ li {
   margin: 1rem auto;
 }
 
+.single-post-betyg {
+  margin: 0 0 0 4rem;
+}
+
+.single-post-betyg-text {
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem 0.5rem;
+}
+
 .single-post-bild {
   width: 100%;
 }

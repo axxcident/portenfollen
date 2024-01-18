@@ -9,6 +9,7 @@ export const query = graphql`
     contentfulPosts(slug: { eq: $slug }) {
       bloggDatum(formatString: "Do of MMMM YYYY")
       titel
+      betyg
       bild {
         gatsbyImage(width: 1000)
       }
@@ -31,6 +32,9 @@ const PortfolioPost = (props) => {
       <Link className='return-btn' to="/portfolio/">Tillbaka till portolio sidan</Link>
       <div className="single-post-container">
         <h2 className='single-post-title'>{contentfulPosts.titel}</h2>
+        {/* <div className="single-post-betyg">
+          <p className="single-post-betyg-text">Betyg: {contentfulPosts.betyg}</p>
+        </div> */}
         <div className="single-post-bild">
           {contentfulPosts.bild.gatsbyImage && (
             <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
