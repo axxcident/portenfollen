@@ -13,29 +13,15 @@ const ContactPage = (contentfulPage) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Save the user's message
     setUserMessage(event.target.message.value);
-    // Show the custom modal
     setShowModal(true);
-    // Clear the form or perform other actions as needed
     event.target.reset();
     setPending(false);
   };
 
   const closeModal = () => {
-    // Close the custom modal
     setShowModal(false);
   };
-
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   alert(
-  //     "Email funkar inte än. Använd istället länken nedan för att skicka mig ett mejl:\n\n" +
-  //       event.target.message.value
-  //   );
-  //   event.target.reset();
-  //   setPending(false);
-  // };
 
   return (
     <>
@@ -111,9 +97,9 @@ const ContactPage = (contentfulPage) => {
                   )}
                 </button>
                 <p className="email-text">
-                  Please contact me directly at{" "}
+                  Eller använd den här länken{" "}
                   <a className="email-anchor" href="mailto:olivecrona.axel@gmail.com">olivecrona.axel@gmail.com</a>
-                  {" "}or through this form.
+                  {" "}och skicka mig ett email genom din e-post tjänst.
                 </p>
               </div>
             </form>
