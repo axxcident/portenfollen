@@ -235,6 +235,9 @@ li {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 .portfolioh2 span {
