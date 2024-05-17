@@ -16,7 +16,7 @@ module.exports = {
     title: `Gatsby ITHS SkolPortfolio`,
     description: `Based on a true story`,
     author: `Axel Olivecrona`,
-    siteUrl: `http://dummy-site.com`,
+    siteUrl: `https://axxcident-portfolio.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-image`,

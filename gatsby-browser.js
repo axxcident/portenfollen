@@ -9,7 +9,6 @@
 
 exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
   if (location.action === 'PUSH') {
-    // Scroll to the top when pushing a new page
     window.scrollTo(0, 0);
   }
   return false;
