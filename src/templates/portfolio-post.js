@@ -11,7 +11,7 @@ export const query = graphql`
       titel
       betyg
       bild {
-        gatsbyImage(width: 1000)
+        gatsbyImage(width: 800)
       }
       body {
         raw
@@ -33,7 +33,7 @@ const PortfolioPost = (props) => {
       <div className="single-post-container">
         <h2 className='single-post-title'>{contentfulPosts.titel}<span className="single-post-betyg">- Betyg: <span className="single-post-betyg-text">{contentfulPosts.betyg}</span></span></h2>
         <div className="single-post-bild">
-          {contentfulPosts.bild.gatsbyImage && (
+          {contentfulPosts.bild && contentfulPosts.bild.gatsbyImage && (
             <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
           )}
         </div>
