@@ -31,19 +31,6 @@ const IndexPage = () => {
 
     fetchData();
   }, []);
-  // useEffect(() => {                         gammal kod för att hämta data från github genom netlify
-  //   const fetchData = async () => {
-  //     try {
-  //       // const response = await axios.get('http://localhost:8000/.netlify/functions/githubData');
-  //       // const response = await axios.get('/.netlify/functions/githubData');
-  //       setData(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching GitHub data:', error.message);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   return (
   <Layout>
