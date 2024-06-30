@@ -11,7 +11,7 @@ export const query = graphql`
       titel
       betyg
       bild {
-        gatsbyImage(width: 800)
+        gatsbyImage(width: 1000)
       }
       body {
         raw

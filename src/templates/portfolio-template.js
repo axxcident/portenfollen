@@ -57,7 +57,11 @@ const categories = ["Alla", ...new Set(katten.map((category) => category.categor
         <li key={edge.node.id} className="kursamne">
           <Link to={`/portfolio-post/${edge.node.slug}/`} className="link_container">
             <div className="bild-container">
-              <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
+              {/* Ny grej nedan */}
+              {edge.node.bild && edge.node.bild.gatsbyImageData && edge.node.titel && (
+                <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} />
+              )}
+              {/* <GatsbyImage className="kursbild" image={getImage(edge.node.bild.gatsbyImageData)} alt={edge.node.titel} /> */}
             </div>
             <div className="kurs-container">
               <h3 className="kurstitel">
