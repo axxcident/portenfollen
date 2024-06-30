@@ -31,10 +31,7 @@ const PortfolioPost = (props) => {
       <div className="gradient-background-1"></div>
       <Link className='return-btn' to="/portfolio/">Tillbaka till portolio sidan</Link>
       <div className="single-post-container">
-        <h2 className='single-post-title'>{contentfulPosts.titel}</h2>
-        {/* <div className="single-post-betyg">
-          <p className="single-post-betyg-text">Betyg: {contentfulPosts.betyg}</p>
-        </div> */}
+        <h2 className='single-post-title'>{contentfulPosts.titel}<span className="single-post-betyg">- Betyg: <span className="single-post-betyg-text">{contentfulPosts.betyg}</span></span></h2>
         <div className="single-post-bild">
           {contentfulPosts.bild.gatsbyImage && (
             <GatsbyImage className="featured" image={getImage(contentfulPosts.bild.gatsbyImage)} alt={contentfulPosts.titel} />
